@@ -14,6 +14,11 @@ def main(page: ft.Page):
         counter.data += 1
         counter.value = str(counter.data)
 
+    # −ボタンがクリックされた時に呼び出される関数
+    def decrement_click(e: ft.Event[ft.FloatingActionButton]):
+        counter.data -= 1
+        counter.value = str(counter.data)
+
     # ＋ボタンを描画エリアに追加
     page.floating_action_button = ft.FloatingActionButton(icon=ft.Icons.ADD, key="increment", on_click=increment_click)
 
@@ -29,6 +34,7 @@ def main(page: ft.Page):
                 alignment=ft.Alignment.CENTER,
             ),
         ),
+        ft.FloatingActionButton(icon=ft.Icons.REMOVE, key="decrement", on_click=decrement_click),
     )
 
 
